@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="layui/css/layui.css" />
+<link rel="stylesheet" type="text/css" href="css/register.css" />
+<script src="jquery-2.1.1/jquery.js" type="text/javascript"
+	charset="utf-8"></script>
+<script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+	<div id="bg">
+
+		<form class="layui-form" action="">
+			<div class="layui-form-item">
+				<label class="layui-form-label">用户名</label>
+				<div class="layui-input-block">
+					<input type="text" id="username" name="username" required
+						lay-verify="required" placeholder="请输入用户名" autocomplete="off"
+						class="layui-input inputs">
+				</div>
+				<p id="waringname">用户名只能包含数字和字母</p>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">名字</label>
+				<div class="layui-input-block">
+					<input type="text" id="name" name="name" required
+						lay-verify="required" placeholder="名字" autocomplete="off"
+						class="layui-input inputs">
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">密码框</label>
+				<div class="layui-input-inline">
+					<input type="password" name="password" id="pwd" required
+						lay-verify="required" placeholder="请输入密码" autocomplete="off"
+						class="layui-input inputs">
+				</div>
+				<div class="layui-form-mid layui-word-aux"></div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">确认密码框</label>
+				<div class="layui-input-inline">
+					<input type="password" name="repassword" id="repwd" required
+						lay-verify="required" placeholder="请输入密码" autocomplete="off"
+						class="layui-input inputs">
+				</div>
+				<div class="layui-form-mid layui-word-aux ">
+					<p class="waring">两次密码需一致</p>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label ">学院</label>
+				<div class="layui-input-block inputs">
+					<select name="college" id="college" lay-verify="required">
+						<option value=""></option>
+					</select>
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<label class="layui-form-label">单选框</label>
+				<div class="layui-input-block">
+					<input type="radio" name="sex" value="男" title="男"> <input
+						type="radio" name="sex" value="女" title="女" checked>
+				</div>
+			</div>
+	</div>
+	<div class="layui-form-item">
+		<div class="layui-input-block  btn">
+			<button class="layui-btn">立即提交</button>
+			<button type="reset" class="layui-btn layui-btn-primary reset">重置</button>
+		</div>
+	</div>
+	<script>
+		function renderForm() {
+			layui.use('form', function() {
+				var form = layui.form; //高版本建议把括号去掉，有的低版本，需要加()
+				form.render();
+			});
+		}
+
+		$("#username").keyup(function() {
+			var req = /^[A-Za-z0-9]+$/;
+			var name = $("#username").val();
+			if (!req.test(name)) {
+				$("#waringname").css("color", "red");
+				$("#waringname").text("用户名只能包含数字和字母");
+			} else {
+
+				$("#waringname").css("color", "#999999");
+				$("#waringname").text("用户名符合规范");
+			}
+
+		});
+		$(document).ready(function() {
+
+			renderForm();
+			$.ajax({
+				  type: 'POST',
+				  url: '/college',
+				  success: function(result){
+					alert(result);  
+					  
+				  }
+			
+				  
+				});
+		});
+		$("#repwd").keyup(function() {
+			var pwd = $("#pwd").val();
+			var repwd = $("#repwd").val();
+			if (pwd != repwd) {
+				$(".waring").css("color", "red");
+				$(".waring").text("两次密码不一致");
+			} else {
+				$(".waring").css("color", "#999");
+				$(".waring").text("密码一致");
+			}
+
+		});
+		$("#college").click(function() {
+			$("#college").empty();
+
+		});
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8" />
+<title></title>
+<link rel="stylesheet" type="text/css" href="/layui/css/layui.css" />
+<link rel="stylesheet" type="text/css" href="/css/project.css" />
+<script src="jquery-2.1.1/jquery.js" type="text/javascript"
+	charset="utf-8"></script>
+	<script src="js/jquery.cookie.js" type="text/javascript"
+	charset="utf-8"></script>
+
+	
+</head>
+
+<body>
+	<div id="bg"></div>
+
+	<div id="main">
+
+		<form action="/log" class="layui-form mainform" method="post">
+			<label class="layui-form-label text" id="usernametext">用户名</label> <input
+				type="text" id="username" name="username" class="layui-input"
+				placeholder="用户名" onkeyup="checkinputname()" /><br /> <label
+				class="layui-form-label text" id="pwdtext">密码</label> <input
+				type="password" id="pwd" name="pwd" class="layui-input"
+				placeholder="密码" /><br /> <input type="button" id="land"
+				class=" layui-btn" value="登陆" onclick="check()" /> <input
+				type="button" id="register" class=" layui-btn" value="注册"  />
+
+			<p id="icon" class="layui-icon layui-icon-close"
+				style="font-size: 25px; color: red; display: none;"></p>
+			<p id="war" style="font-size: 15px; color: red;"></p>
+		</form>
+	</div>
+
+</body>
+<script type="text/javascript">
+$("#register").click(function(){
+	window.open("register.html");
+	
+});
+$(document).ready(function () { 
+	var code= $.cookie('code');
+	console.log(code=="null");
+	 if(code=="null") {
+			$("#icon").css("display", "block");
+		 $("#war").css("display", "block");
+			$("#war").text("用户名不存在");
+	 }
+	 if(code=="waring") {
+			$("#icon").css("display", "block");
+		 $("#war").css("display", "block");
+			$("#war").text("密码不正确");
+	 }
+	
+});
+	function checkinputname() {
+		var req = /^[A-Za-z0-9]+$/;
+		var name = $("#username").val();
+		if (!req.test(name)) {
+			$("#icon").css("display", "block");
+			$("#war").css("display", "block");
+			$("#war").text("用户名规则不正确");
+
+		} else {
+			$("#icon").css("display", "none");
+
+			$("#war").css("display", "none");
+
+		}
+	}
+
+	function check() {
+		var name = $("#username").val();
+
+		var pwd = $("#pwd").val();
+		if (name == "" || pwd == "") {
+			$("#icon").css("display", "block");
+			$("#war").css("display", "block");
+			$("#war").text("请输入账户名或者密码");
+
+		} else {
+			$("#icon").css("display", "none");
+			$("#war").css("display", "none");
+			$("form").submit();
+			
+
+		}
+	}
+</script>
+
+</html>

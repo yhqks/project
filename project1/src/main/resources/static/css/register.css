@@ -1,0 +1,47 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	width: 1920px;
+	overflow: hidden;
+}
+
+#bg {
+	margin-top: 150px;
+	margin-left: 550px;
+	position: absolute;
+	width: 750px;
+	height: 500px;
+	overflow: hidden
+}
+
+.inputs{
+	width: 200px;
+}
+
+.btn{
+    top: 466px;
+    left: 499px
+}
+.layui-btn+.layui-btn {
+    margin-left: 67px;
+}
+
+.reset {
+    left: 50px;
+    width: 99px;
+}
+
+#waringname{
+	    display: block;
+    position: absolute;
+    color: #999999;
+    left: 311px;
+    top: 8px;
+}
+
+#name{
+	top: 15px;
+}
