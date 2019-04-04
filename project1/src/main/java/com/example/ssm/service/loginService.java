@@ -24,4 +24,11 @@ public class loginService {
 			return c;
 			
 		}
+		
+		
+		public Boolean insertuser(user user) {
+			
+			return map.insertuser(user);
+			
+		} 
 }

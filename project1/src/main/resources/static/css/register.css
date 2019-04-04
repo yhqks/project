@@ -23,7 +23,12 @@ body {
 
 .btn{
     top: 466px;
-    left: 499px
+    left: 480px;
+
+}
+
+.btns{
+    left: -39px;
 }
 .layui-btn+.layui-btn {
     margin-left: 67px;

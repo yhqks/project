@@ -14,7 +14,7 @@
 <body>
 	<div id="bg">
 
-		<form class="layui-form" action="">
+		<form class="layui-form" action="/register" method="post">
 			<div class="layui-form-item">
 				<label class="layui-form-label">用户名</label>
 				<div class="layui-input-block">
@@ -24,14 +24,14 @@
 				</div>
 				<p id="waringname">用户名只能包含数字和字母</p>
 			</div>
-			<div class="layui-form-item">
+			<!--  <div class="layui-form-item">
 				<label class="layui-form-label">名字</label>
 				<div class="layui-input-block">
 					<input type="text" id="name" name="name" required
 						lay-verify="required" placeholder="名字" autocomplete="off"
 						class="layui-input inputs">
 				</div>
-			</div>
+			</div>-->
 			<div class="layui-form-item">
 				<label class="layui-form-label">密码框</label>
 				<div class="layui-input-inline">
@@ -67,14 +67,18 @@
 						type="radio" name="sex" value="女" title="女" checked>
 				</div>
 			</div>
-	</div>
-	<div class="layui-form-item">
-		<div class="layui-input-block  btn">
-			<button class="layui-btn">立即提交</button>
+			<div class="layui-form-item">
+		<div class="layui-input-block btns">
+			<button class="layui-btn btn" onclick="post()">立即提交</button>
 			<button type="reset" class="layui-btn layui-btn-primary reset">重置</button>
 		</div>
 	</div>
+		</form>
+	</div>
+
 	<script>
+	var  pwdfalg;
+	var  nameflag;
 		function renderForm() {
 			layui.use('form', function() {
 				var form = layui.form; //高版本建议把括号去掉，有的低版本，需要加()
@@ -84,7 +88,8 @@
 
 		$("#username").keyup(function() {
 			var req = /^[A-Za-z0-9]+$/;
-			var name = $("#username").val();
+               
+			console.log(name);
 			if (!req.test(name)) {
 				$("#waringname").css("color", "red");
 				$("#waringname").text("用户名只能包含数字和字母");
@@ -92,39 +97,65 @@
 
 				$("#waringname").css("color", "#999999");
 				$("#waringname").text("用户名符合规范");
+				$.ajax({
+					type : 'POST',
+					data :{"name":$("#username").val()},
+					url : '/checkname',
+					success : function(result) {
+						if (result == true) {
+							$("#waringname").css("color", "#999999");
+							$("#waringname").text("用户名符合规范且用户名未被注册");
+							namefalg=true;
+
+						} else {
+							$("#waringname").css("color", "red");
+							$("#waringname").text("用户名符合规范但用户名已被注册");
+							namefalg=false;
+						}
+					},
+
+				});
 			}
 
 		});
-		$(document).ready(function() {
+		$(document).ready(
+				function() {
 
-			renderForm();
-			$.ajax({
-				  type: 'POST',
-				  url: '/college',
-				  success: function(result){
-					alert(result);  
-					  
-				  }
-			
-				  
+					renderForm();
+					$.ajax({
+						type : 'POST',
+						url : '/college',
+						success : function(result) {
+							$.each(result, function() {
+								$("#college").append(
+										"<option value='"+this+"'> " + this
+												+ "</option>");
+							});
+
+						}
+
+					});
 				});
-		});
 		$("#repwd").keyup(function() {
 			var pwd = $("#pwd").val();
 			var repwd = $("#repwd").val();
+	
 			if (pwd != repwd) {
 				$(".waring").css("color", "red");
 				$(".waring").text("两次密码不一致");
+				pwdfalg=false;
 			} else {
-				$(".waring").css("color", "#999");
+				$(".waring").css("color", "#999999");
 				$(".waring").text("密码一致");
+				pwdfalg=true;
 			}
 
 		});
-		$("#college").click(function() {
-			$("#college").empty();
+		function post() {
+           
+			
 
-		});
+		}
 	</script>
 </body>
 
