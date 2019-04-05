@@ -3,11 +3,11 @@ package com.example.ssm.pojo;
 import java.sql.Date;
 
 public class discuss {
-	private Integer id;
-	private String context;
-	private Integer uid;
-	private Integer nid;
-	private Date time;
+	private Integer id; //讨论记录的id
+	private String context;//内容
+	private Integer uid;//用户的id
+	private Integer nid;//新闻的id
+	private Date time;//发表的时间
 
 	public Integer getId() {
 		return id;

@@ -94,8 +94,15 @@ public class loginController extends HttpServlet {
 	
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String register() {
+	public String register(HttpServletRequest request) {
+		user user=new user();
 		
+		user.setUsername(request.getParameter("username"));
+		user.setPwd(request.getParameter("pwd"));
+		user.setSex(request.getParameter("sex"));
+		user.setCollege(request.getParameter("college"));
+		user.setPremission(1);
+		userService.insertuser(user);
 		return "index";
 	}
 //	

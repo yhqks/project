@@ -1,9 +1,9 @@
 package com.example.ssm.pojo;
 
 public class pic {
-	private String src;
-	private Integer nid;
-	private Integer adr;
+	private String src;//图片记录
+	private Integer nid;//新闻id
+	private Integer adr;//第几个字之后
 
 	public String getSrc() {
 		return src;

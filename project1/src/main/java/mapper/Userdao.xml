@@ -9,6 +9,6 @@
  select * from college
  </select>
  <insert id="insertuser" parameterType="com.example.ssm.pojo.user">
- INSERT INTO `user`( `username`, `pwd`, `sex`, `college`, `Permissions`) VALUES (#{username},#{pwd},#{sex},#{college},1)
+ INSERT INTO `user`( `username`, `pwd`, `sex`, `college`, `Permissions`) VALUES (#{username},#{pwd},#{sex},#{college},#{Premission})
  </insert>
 </mapper>

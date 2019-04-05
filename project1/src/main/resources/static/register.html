@@ -35,7 +35,7 @@
 			<div class="layui-form-item">
 				<label class="layui-form-label">密码框</label>
 				<div class="layui-input-inline">
-					<input type="password" name="password" id="pwd" required
+					<input type="password" name="pwd" id="pwd" required
 						lay-verify="required" placeholder="请输入密码" autocomplete="off"
 						class="layui-input inputs">
 				</div>
@@ -44,7 +44,7 @@
 			<div class="layui-form-item">
 				<label class="layui-form-label">确认密码框</label>
 				<div class="layui-input-inline">
-					<input type="password" name="repassword" id="repwd" required
+					<input type="password" name="repwd" id="repwd" required
 						lay-verify="required" placeholder="请输入密码" autocomplete="off"
 						class="layui-input inputs">
 				</div>
@@ -77,8 +77,8 @@
 	</div>
 
 	<script>
-	var  pwdfalg;
-	var  nameflag;
+	var  pwdfalg=false;
+	var  nameflag=false;
 		function renderForm() {
 			layui.use('form', function() {
 				var form = layui.form; //高版本建议把括号去掉，有的低版本，需要加()
@@ -88,7 +88,7 @@
 
 		$("#username").keyup(function() {
 			var req = /^[A-Za-z0-9]+$/;
-               
+			var  name=$("#username").val();
 			console.log(name);
 			if (!req.test(name)) {
 				$("#waringname").css("color", "red");
@@ -152,7 +152,15 @@
 
 		});
 		function post() {
-           
+			var  name=$("#username").val();
+			var  pwd=$("#pwd").val();
+			var college=$("#college").val();
+			var  sex=$("input[name='sex']:checked").val();
+			
+			if(pwdfalg==true&&nameflag==true&&college!=null){
+				$("form").submit();
+				
+			}
 			
 
 		}

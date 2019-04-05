@@ -1,12 +1,12 @@
 package com.example.ssm.pojo;
 
 public class news {
-	private Integer id;
-	private String title;
-	private Integer author_id;
-	private String types;
-	private String context;
-	private Integer scan_num;
+	private Integer id;//新闻id
+	private String title;//新闻的标题
+	private Integer author_id;//作者id
+	private String types;//新闻类型
+	private String context;//新闻的内容
+	private Integer scan_num;//浏览数量
 
 	public Integer getId() {
 		return id;

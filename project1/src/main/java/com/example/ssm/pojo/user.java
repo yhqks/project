@@ -1,13 +1,13 @@
 package com.example.ssm.pojo;
 
 public class user {
-	private int id;
-	private String username;
-	private String pwd;
-	private String sex;
-	private String college;
-	private String interest;
-	private int  Premission;
+	private int id;//用户id
+	private String username;//用户名
+	private String pwd;//密码
+	private String sex;//性别
+	private String college;//学院
+	private String interest;//兴趣
+	private int  Premission;//用户等级
 	public int getId() {
 		return id;
 	}

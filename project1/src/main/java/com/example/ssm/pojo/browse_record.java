@@ -3,9 +3,9 @@ package com.example.ssm.pojo;
 import java.sql.Date;
 
 public class browse_record {
-	private Integer uid;
-	private Integer nid;
-	private Date time;
+	private Integer uid;//浏览用户的id
+	private Integer nid;//被浏览的新闻的id
+	private Date time;//浏览的日期
 
 	public Integer getUid() {
 		return uid;
