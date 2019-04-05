@@ -15,8 +15,8 @@ public class loginService {
 
 		public user getuser(String name) {
 			// TODO Auto-generated method stub
-			user  list = map.selectByName(name);
-			return list;
+			user  user = map.selectByName(name);
+			return user;
 		}
 		public List<String >getALLCollege() {
 			

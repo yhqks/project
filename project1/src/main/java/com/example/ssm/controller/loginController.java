@@ -54,10 +54,12 @@ public class loginController extends HttpServlet {
 		}
 		//密码和user中一致登陆成功
 		if (user.getPwd().equals(request.getParameter("pwd"))) {
-			System.out.println("success");
-			//在session保存用户信息
-			request.setAttribute("user", user);
+			if(user.getPermissions()==0)
 			return "login";
+			if(user.getPermissions()==1) {
+				Cookie c2 = new Cookie("user", user.getUsername());
+				return  "start_page";
+			}
 
 		}
 		//说明用户名和密码不匹配
@@ -88,6 +90,7 @@ public class loginController extends HttpServlet {
 	@ResponseBody 
 	public Boolean  checkname(@RequestParam(value = "name")String name) {
 		user user = userService.getuser(name);
+		System.out.println(user);
 		if(user!=null) return false;
 		return true;
 	}
@@ -101,7 +104,7 @@ public class loginController extends HttpServlet {
 		user.setPwd(request.getParameter("pwd"));
 		user.setSex(request.getParameter("sex"));
 		user.setCollege(request.getParameter("college"));
-		user.setPremission(1);
+		user.setPermissions(1);
 		userService.insertuser(user);
 		return "index";
 	}

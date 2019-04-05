@@ -7,7 +7,7 @@ public class user {
 	private String sex;//性别
 	private String college;//学院
 	private String interest;//兴趣
-	private int  Premission;//用户等级
+	private int  Permissions;//用户等级
 	public int getId() {
 		return id;
 	}
@@ -45,11 +45,11 @@ public class user {
 	public void setInterest(String interest) {
 		this.interest = interest;
 	}
-	public int getPremission() {
-		return Premission;
+	public int getPermissions() {
+		return Permissions;
 	}
-	public void setPremission(int premission) {
-		this.Premission = premission;
+	public void setPermissions(int premission) {
+		this.Permissions = premission;
 	}
 	
 	public user(int id, String username, String pwd, String sex, String college, String interest, int premission) {
@@ -60,7 +60,7 @@ public class user {
 		this.sex = sex;
 		this.college = college;
 		this.interest = interest;
-		this.Premission = premission;
+		this.Permissions = premission;
 	}
 	public user(String username, String pwd, String sex, String college, String interest, int premission) {
 		this.username = username;
@@ -68,13 +68,13 @@ public class user {
 		this.sex = sex;
 		this.college = college;
 		this.interest = interest;
-		Premission = premission;
+		this.Permissions = premission;
 	}
 	public user() {}
 	@Override
 	public String toString() {
 		return "user [id=" + id + ", username=" + username + ", pwd=" + pwd + ", sex=" + sex + ", college=" + college
-				+ ", interest=" + interest + ", Premission=" + Premission + "]";
+				+ ", interest=" + interest + ", Premission=" + Permissions + "]";
 	}
 	
 }
