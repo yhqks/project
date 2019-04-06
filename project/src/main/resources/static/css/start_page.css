@@ -1,0 +1,81 @@
+#bodys{
+	overflow: auto;
+}
+#headerul :hover{
+	color: #4889f3;
+	
+}
+
+#headerul li a{
+		font-family: "Î¢ÈíÑÅºÚ";
+    font-size: 18px;
+	color: black;
+	
+}
+
+#header{
+		font-family: "Î¢ÈíÑÅºÚ";
+    font-size: 18px;
+	background-color: white;
+}
+
+#title{
+		font-family: "Î¢ÈíÑÅºÚ";
+    font-size: 25px;
+	color:#4889f3;
+	
+}
+
+#firstarea ul li a{
+}
+ul{
+	font-family: "Î¢ÈíÑÅºÚ";
+}
+#firstareaul{
+	width: auto;
+	background-color: white;
+	
+}
+
+#firstareaul li :hover{
+	
+	background-color: #F8F8F8;
+	color: #4889f3;
+	
+}
+#firstul a{
+	font-weight: 1000;
+}
+
+h3{
+	color: #4889f3;
+}
+#secondarea ul  li  div{
+	color: black;
+}
+#secondul{
+	width: auto;
+	background-color: white;
+	
+}
+.seconddiv{
+height: 150px;
+}
+#secondul li :hover{
+	
+	background-color: #F8F8F8;
+	color: #4889f3;
+	
+}
+
+.hot-icon{
+
+	    display: inline-block;
+    width: 24px;
+}
+
+.imgset{
+	margin-left: 25px;
+	width: 150px;
+	height: 100px;
+}
