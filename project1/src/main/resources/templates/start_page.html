@@ -1,125 +1,161 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<title>layout 后台大布局 - Layui</title>
-		<link rel="stylesheet" href="layui/css/layui.css">
-		<link rel="stylesheet" href="css/start_page.css" />
-	</head>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>layout 后台大布局 - Layui</title>
+<link rel="stylesheet" href="layui/css/layui.css">
+<link rel="stylesheet" href="css/start_page.css" />
+</head>
 
-	<body class="layui-layout-body">
-		<div class="layui-layout layui-layout-admin">
-			<div class="layui-header"  id="header">
-				<div class="layui-logo  " id="title">校园新闻网</div>
-				<!-- 头部区域（可配合layui已有的水平导航） -->
-				<ul class="layui-nav layui-layout-left" id="headerul">
-					<li class="layui-nav-item">
-						<a href="">控制台</a>
-					</li>
-					<li class="layui-nav-item">
-						<a href="">商品管理</a>
-					</li>
-					<li class="layui-nav-item">
-						<a href="">用户</a>
-					</li>
-					<li class="layui-nav-item">
-						<a href="">用户</a>
-					</li>
-					<li class="layui-nav-item">
-						<a href="">用户</a>
-					</li>
-					<li class="layui-nav-item">
-						<a href="">用户</a>
-					</li>
-					<li class="layui-nav-item">
-						<a href="">用户</a>
-					</li>
-					<li class="layui-nav-item">
-						<a href="">用户</a>
-					</li>
+<body class="layui-layout-body" id="bodys">
+	<div class="layui-layout layui-layout-admin">
+		<div class="layui-header" id="header">
+			<div class="layui-logo  " id="title">校园新闻网</div>
+			<!-- 头部区域（可配合layui已有的水平导航） -->
+			<ul class="layui-nav layui-layout-left" id="headerul">
+				<li class="layui-nav-item"><a href="">控制台</a></li>
+				<li class="layui-nav-item"><a href="">商品管理</a></li>
+				<li class="layui-nav-item"><a href="">用户</a></li>
+				<li class="layui-nav-item"><a href="">用户</a></li>
+				<li class="layui-nav-item"><a href="">用户</a></li>
+				<li class="layui-nav-item"><a href="">用户</a></li>
+				<li class="layui-nav-item"><a href="">用户</a></li>
+				<li class="layui-nav-item"><a href="">用户</a></li>
 
-					<li class="layui-nav-item">
-						<a href="javascript:;">其它系统</a>
-						<dl class="layui-nav-child">
-							<dd>
-								<a href="">邮件管理</a>
-							</dd>
-							<dd>
-								<a href="">消息管理</a>
-							</dd>
-							<dd>
-								<a href="">授权管理</a>
-							</dd>
-						</dl>
-					</li>
-				</ul>
-				<ul class="layui-nav layui-layout-right">
-					<li class="layui-nav-item">
-						<a href="javascript:;" id="usernameshow">
-							<img src="" class="layui-nav-img"> 
-						</a>
-						<dl class="layui-nav-child">
-							<dd>
-								<a href="">基本资料</a>
-							</dd>
-							<dd>
-								<a href="">安全设置</a>
-							</dd>
-						</dl>
-					</li>
-					<li class="layui-nav-item">
-						<a href="">退了</a>
-					</li>
-				</ul>
-			</div>
-			</div>
+				<li class="layui-nav-item"><a href="javascript:;">其它系统</a>
+					<dl class="layui-nav-child">
+						<dd>
+							<a href="">邮件管理</a>
+						</dd>
+						<dd>
+							<a href="">消息管理</a>
+						</dd>
+						<dd>
+							<a href="">授权管理</a>
+						</dd>
+					</dl></li>
+			</ul>
+			<ul class="layui-nav layui-layout-right">
+				<li class="layui-nav-item"><a href="javascript:;"
+					id="usernameshow"> <img src="" class="layui-nav-img">
+				</a>
+					<dl class="layui-nav-child">
+						<dd>
+							<a href="">基本资料</a>
+						</dd>
+						<dd>
+							<a href="">安全设置</a>
+						</dd>
+					</dl></li>
+				<li class="layui-nav-item"><a href="">退了</a></li>
+			</ul>
 		</div>
-			<div class="layui-container" id="main">
-				常规布局（以中型屏幕桌面为例）：
-				<div class="layui-row">
-					<div class="layui-col-md9 ">
+	</div>
+	<div class="layui-container" id="main">
+		<div class="layui-row">
+			<div class="layui-col-md9 ">
 
-						<div class="layui-col-md">
-							内容
-						</div>
-						<fieldset class="layui-elem-field layui-field-title site-title">
-							<legend>
-								<a name="use">分割线</a>
-							</legend>
-						</fieldset>
-						<div class="layui-col-md">
-							内容2
-						</div>
+				<fieldset class="layui-elem-field layui-field-title site-title">
+					<legend>
+						<h3>今日要闻</h3>
+					</legend>
+
+					<div class="layui-field-box" id="firstarea">
+						<ul class="layui-nav layui-nav-tree" id="firstareaul">
+							<li class="layui-nav-item " id="firstul"><a href="">这些名字，习近平常思之念之</a>
+							</li>
+							<li class="layui-nav-item"><a href="">祭奠，为了更好地前行 寻找英雄</a></li>
+							<li class="layui-nav-item"><a href="">各地广泛开展缅怀先烈活动
+									传承红色基因 清明节专题</a></li>
+							<li class="layui-nav-item"><a href="">新华网评：英雄事迹动人心 鲜花献英烈
+									理论新境界</a></li>
+							<li class="layui-nav-item"><a href="">美国总统特朗普表示美中两国对世界负有责任
+									【国际锐评】</a></li>
+							
+						</ul>
 					</div>
+				</fieldset>
 
-					<div class="layui-col-md3 ">
-						右边
+				<fieldset class="layui-elem-field layui-field-title site-title">
+					<legend>
+						<h3>热点精选</h3>
+					</legend>
+					<div class="layui-field-box" id="secondarea">
+						<ul class="layui-nav layui-nav-tree" id="secondul">
+							<li class="layui-nav-item">
+								<div class="seconddiv">
+									<a href=""><span class="layui-icon">&#xe756;</span>青岛回应“崂山景区非法墓地”：迅速全面排查
+										严肃查处违规问题 </a> <img src="img/ninja155013517315644.jpg" alt=""
+										class="imgset" /> <img src="img/ninja155013517315644.jpg"
+										alt="" class="imgset" /> <img
+										src="img/ninja155013517315644.jpg" alt="" class="imgset" />
+
+								</div>
+							</li>
+							<li class="layui-nav-item">
+								<div class="seconddiv">
+									<img src="img/ninja155013517315644.jpg" alt="" class="imgset1" />
+									<a href="" class="imgset1a">新版个人征信报告将上线：上午离婚下午买房将成为过去</a>
+								</div>
+							</li>
+							<li class="layui-nav-item">
+								<div class="seconddiv">
+									<img src="img/ninja155013517315644.jpg" alt="" class="imgset1" />
+									<a href="" class="imgset1a">新版个人征信报告将上线：上午离婚下午买房将成为过去</a>
+								</div>
+							</li>
+
+						</ul>
 					</div>
-
-				</div>
+				</fieldset>
 
 			</div>
-	
-			<script src="layui/layui.js"></script>
-			<script src="jquery-2.1.1/jquery.js" type="text/javascript" charset="utf-8"></script>
-			<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
 
-			<script>
-				//JavaScript代码区域
-				layui.use('element', function() {
-					var element = layui.element;
+			<div class="layui-col-md3 "></div>
+
+		</div>
+
+	</div>
+
+	<script src="layui/layui.js"></script>
+	<script src="jquery-2.1.1/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="js/jquery.cookie.js" type="text/javascript"
+		charset="utf-8"></script>
+
+	<script>
+		//JavaScript代码区域
+		layui.use('element', function() {
+			var element = layui.element;
+
+		});
+
+		$(document).ready(
+				function() {
+					var code = $.cookie('username');
+					if (code == null)
+						window.location.href = "index.html";
+					$("#usernameshow").text(code);
+
+					$.ajax({
+						type : 'POST',
+						dataType : 'json',
+						url : '/getAllnews',
+						success : function(result) {
+							$.each(result, function() {
+								console.log(this.context);
+								$("#firstareaul").append("<li class='layui-nav-item'><a href="+""+">"+this.title+"</a></li>");
+							});
+
+						}
+
+					});
 
 				});
-				$(document).ready(function () { 
-					var code= $.cookie('user');
-					
-					
-					
-				});
-			
-			</script>
-	</body>
+	</script>
+</body>
 
 </html>

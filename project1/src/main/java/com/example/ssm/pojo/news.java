@@ -1,18 +1,18 @@
 package com.example.ssm.pojo;
 
 public class news {
-	private Integer id;//新闻id
-	private String title;//新闻的标题
-	private Integer author_id;//作者id
-	private String types;//新闻类型
-	private String context;//新闻的内容
-	private Integer scan_num;//浏览数量
+	private int id;// 新闻id
+	private String title;// 新闻的标题
+	private int authorId;// 作者id
+	private String types;// 新闻类型
+	private String context;// 新闻的内容
+	private int scanNum;// 浏览数量
 
 	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -24,13 +24,9 @@ public class news {
 		this.title = title;
 	}
 
-	public Integer getAuthor_id() {
-		return author_id;
-	}
 
-	public void setAuthor_id(Integer author_id) {
-		this.author_id = author_id;
-	}
+
+
 
 	public String getTypes() {
 		return types;
@@ -48,42 +44,48 @@ public class news {
 		this.context = context;
 	}
 
-	public Integer getScan_num() {
-		return scan_num;
-	}
 
-	public void setScan_num(Integer scan_num) {
-		this.scan_num = scan_num;
-	}
 
-	public news(Integer id, String title, Integer author_id, String types, String context, Integer scan_num) {
-		super();
-		this.id = id;
-		this.title = title;
-		this.author_id = author_id;
-		this.types = types;
-		this.context = context;
-		this.scan_num = scan_num;
-	}
 
-	public news(String title, Integer author_id, String types, String context, Integer scan_num) {
-		super();
-		this.title = title;
-		this.author_id = author_id;
-		this.types = types;
-		this.context = context;
-		this.scan_num = scan_num;
-	}
+
 
 	public news() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+	public int getAuthorId() {
+		return authorId;
+	}
+
+	public void setAuthorId(int authorId) {
+		this.authorId = authorId;
+	}
+
+	public int getScanNum() {
+		return scanNum;
+	}
+
+	public void setScanNum(int scanNum) {
+		this.scanNum = scanNum;
+	}
+
 	@Override
 	public String toString() {
-		return "news [title=" + title + ", author_id=" + author_id + ", types=" + types + ", context=" + context
-				+ ", scan_num=" + scan_num + "]";
+		return "news [id=" + id + ", title=" + title + ", authorId=" + authorId + ", types=" + types + ", context="
+				+ context + ", scanNum=" + scanNum + "]";
 	}
+
+	public news(int id, String title, int authorId, String types, String context, int scanNum) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.authorId = authorId;
+		this.types = types;
+		this.context = context;
+		this.scanNum = scanNum;
+	}
+
+	
 
 }

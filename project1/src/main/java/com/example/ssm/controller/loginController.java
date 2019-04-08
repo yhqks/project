@@ -57,7 +57,8 @@ public class loginController extends HttpServlet {
 			if(user.getPermissions()==0)
 			return "login";
 			if(user.getPermissions()==1) {
-				Cookie c2 = new Cookie("user", user.getUsername());
+				Cookie c2 = new Cookie("username", user.getUsername());
+				response.addCookie(c2);
 				return  "start_page";
 			}
 

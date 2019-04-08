@@ -79,3 +79,21 @@ height: 150px;
 	width: 150px;
 	height: 100px;
 }
+.imgset1{
+	margin-top: 25px;
+	margin-left: 25px;
+		width: 150px;
+	height: 100px;
+}
+ a{
+ 	display: block;
+ 	z-index: auto;
+ }
+.seconddiv{
+	
+	position: inherit;
+}
+.imgset1a{
+	    margin-top: -113px;
+    margin-left: 165px;
+}
