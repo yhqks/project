@@ -9,5 +9,8 @@
 <select id="getAllpic"  resultType="com.example.ssm.pojo.pic" parameterType="Integer">
   select src from pic where nid =#{id}
 </select>
+<select id="getTitle" resultType="java.lang.String">
+select  * from type
+</select>
 
 </mapper>

@@ -1,6 +1,10 @@
 #bodys{
 	overflow: auto;
 }
+#headerul{
+		position:fixed;
+}
+
 #headerul :hover{
 	color: #4889f3;
 	
@@ -95,5 +99,9 @@ height: 150px;
 }
 .imgset1a{
 	    margin-top: -113px;
-    margin-left: 165px;
+    margin-left: 175px;
+}
+
+#btn{
+	color:white;
 }

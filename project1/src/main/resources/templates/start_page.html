@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>layout 后台大布局 - Layui</title>
+<title> 校园新闻</title>
 <link rel="stylesheet" href="layui/css/layui.css">
 <link rel="stylesheet" href="css/start_page.css" />
 </head>
@@ -17,26 +17,7 @@
 			<!-- 头部区域（可配合layui已有的水平导航） -->
 			<ul class="layui-nav layui-layout-left" id="headerul">
 				<li class="layui-nav-item"><a href="">控制台</a></li>
-				<li class="layui-nav-item"><a href="">商品管理</a></li>
-				<li class="layui-nav-item"><a href="">用户</a></li>
-				<li class="layui-nav-item"><a href="">用户</a></li>
-				<li class="layui-nav-item"><a href="">用户</a></li>
-				<li class="layui-nav-item"><a href="">用户</a></li>
-				<li class="layui-nav-item"><a href="">用户</a></li>
-				<li class="layui-nav-item"><a href="">用户</a></li>
 
-				<li class="layui-nav-item"><a href="javascript:;">其它系统</a>
-					<dl class="layui-nav-child">
-						<dd>
-							<a href="">邮件管理</a>
-						</dd>
-						<dd>
-							<a href="">消息管理</a>
-						</dd>
-						<dd>
-							<a href="">授权管理</a>
-						</dd>
-					</dl></li>
 			</ul>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item"><a href="javascript:;"
@@ -50,7 +31,9 @@
 							<a href="">安全设置</a>
 						</dd>
 					</dl></li>
-				<li class="layui-nav-item"><a href="">退了</a></li>
+				<li class="layui-nav-item"  >
+				<button onclick="exit()"  id="btn" class="layui-btn" values="推出" >推出</button>
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -132,6 +115,14 @@
 			var element = layui.element;
 
 		});
+		
+		function  exit(){
+			$.ajax({
+				type : 'POST',
+				url : '/exit',
+			});
+			
+		}
 
 		$(document).ready(
 				function() {
@@ -139,6 +130,22 @@
 					if (code == null)
 						window.location.href = "index.html";
 					$("#usernameshow").text(code);
+					$.ajax({
+						type : 'POST',
+						dataType : 'json',
+						url : '/getTitle',
+						success : function(result) {
+							$.each(result, function() {
+								$("#headerul").append("<li class='layui-nav-item'><a href="+""+">"+this+"</a></li>");
+								
+								
+							});
+							
+							
+						}
+					
+					
+					});
 
 					$.ajax({
 						type : 'POST',
@@ -146,8 +153,17 @@
 						url : '/getAllnews',
 						success : function(result) {
 							$.each(result, function() {
-								console.log(this.context);
+								if(this.src.length==0)
 								$("#firstareaul").append("<li class='layui-nav-item'><a href="+""+">"+this.title+"</a></li>");
+								if(this.src.length==1)
+								{$("#secondul").append("<li class='layui-nav-item'><div class='seconddiv'><img src=img/"+this.src[0].src+" class='imgset1' /><a href=''    class="+"imgset1a"+">"+this.title+"</a></div></li>");}
+								else if(this.src.length>1){
+									
+									$("#secondul").append("<li class='layui-nav-item'><div class='seconddiv'><a href="+""+"><span class='layui-icon'>&#xe756;</span>"+this.title+" </a></div></li>");
+									$.each(this.src, function(){
+										$(".seconddiv:last").append("<img src=img/"+this.src+"   class='imgset' />");
+									});
+								}
 							});
 
 						}

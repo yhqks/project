@@ -1,5 +1,7 @@
 package com.example.ssm.pojo;
 
+import java.util.List;
+
 public class news {
 	private int id;// 新闻id
 	private String title;// 新闻的标题
@@ -7,6 +9,15 @@ public class news {
 	private String types;// 新闻类型
 	private String context;// 新闻的内容
 	private int scanNum;// 浏览数量
+	private List<pic> src;
+
+	public List<pic> getSrc() {
+		return src;
+	}
+
+	public void setSrc(List<pic> src) {
+		this.src = src;
+	}
 
 	public Integer getId() {
 		return id;

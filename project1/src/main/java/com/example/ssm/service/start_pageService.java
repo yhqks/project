@@ -25,6 +25,12 @@ public class start_pageService {
 		List<pic>  list= map.getAllpic(id);
 		return list;
 	}
+	
+	public List<String>  getTitle(){
+		
+		List<String> list=map.getTitle();
+		return list;
+	}
 
 
 
