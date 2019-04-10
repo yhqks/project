@@ -46,4 +46,10 @@ public class start_pageController {
 		
 		return "index";
 	}
+	
+	@RequestMapping(value = "getNewsById", method = RequestMethod.POST)
+	@ResponseBody
+	public news getNewsById(Integer id) {
+		return   Service.getNewsById(id);
+	}
 }

@@ -154,12 +154,12 @@
 						success : function(result) {
 							$.each(result, function() {
 								if(this.src.length==0)
-								$("#firstareaul").append("<li class='layui-nav-item'><a href="+""+">"+this.title+"</a></li>");
+								$("#firstareaul").append("<li class='layui-nav-item'><a href="+"showpage.html?id="+this.id+""+">"+this.title+"</a></li>");
 								if(this.src.length==1)
-								{$("#secondul").append("<li class='layui-nav-item'><div class='seconddiv'><img src=img/"+this.src[0].src+" class='imgset1' /><a href=''    class="+"imgset1a"+">"+this.title+"</a></div></li>");}
+								{$("#secondul").append("<li class='layui-nav-item'><div class='seconddiv'><img src=img/"+this.src[0].src+" class='imgset1' /><a href="+"showpage.html?id="+this.id+""+"    class="+"imgset1a"+">"+this.title+"</a></div></li>");}
 								else if(this.src.length>1){
 									
-									$("#secondul").append("<li class='layui-nav-item'><div class='seconddiv'><a href="+""+"><span class='layui-icon'>&#xe756;</span>"+this.title+" </a></div></li>");
+									$("#secondul").append("<li class='layui-nav-item'><div class='seconddiv'><a href="+"showpage.html?id="+this.id+""+"><span class='layui-icon'>&#xe756;</span>"+this.title+" </a></div></li>");
 									$.each(this.src, function(){
 										$(".seconddiv:last").append("<img src=img/"+this.src+"   class='imgset' />");
 									});

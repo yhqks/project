@@ -31,7 +31,10 @@ public class start_pageService {
 		List<String> list=map.getTitle();
 		return list;
 	}
-
+   public news getNewsById(int id) {
+	   news news=map.getNewsById(id);
+	   return news;
+   }
 
 
 }

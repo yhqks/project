@@ -13,5 +13,5 @@ public interface Startpagedao {
   List<news> getAllNews();
   List<pic> getAllpic(int id);
   List<String>  getTitle();
-
+  news getNewsById(int id);
 }

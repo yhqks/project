@@ -1,5 +1,6 @@
 package com.example.ssm.pojo;
 
+import java.sql.Date;
 import java.util.List;
 
 public class news {
@@ -10,6 +11,15 @@ public class news {
 	private String context;// 新闻的内容
 	private int scanNum;// 浏览数量
 	private List<pic> src;
+	 private Date time;
+
+	public Date getTime() {
+		return time;
+	}
+
+	public void setTime(Date time) {
+		this.time = time;
+	}
 
 	public List<pic> getSrc() {
 		return src;
@@ -84,10 +94,11 @@ public class news {
 	@Override
 	public String toString() {
 		return "news [id=" + id + ", title=" + title + ", authorId=" + authorId + ", types=" + types + ", context="
-				+ context + ", scanNum=" + scanNum + "]";
+				+ context + ", scanNum=" + scanNum + ", src=" + src + ", time=" + time + "]";
 	}
 
-	public news(int id, String title, int authorId, String types, String context, int scanNum) {
+	public news(int id, String title, int authorId, String types, String context, int scanNum, List<pic> src,
+			Date time) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -95,7 +106,10 @@ public class news {
 		this.types = types;
 		this.context = context;
 		this.scanNum = scanNum;
+		this.src = src;
+		this.time = time;
 	}
+
 
 	
 

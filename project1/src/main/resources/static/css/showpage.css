@@ -1,0 +1,79 @@
+#bodys {
+	overflow: auto;
+}
+
+#headerul :hover {
+	color: #4889f3;
+}
+
+#headerul li a {
+	font-family: "微软雅黑";
+	font-size: 18px;
+	color: black;
+}
+
+#header {
+	font-family: "微软雅黑";
+	font-size: 18px;
+	background-color: white;
+}
+
+#title {
+	font-family: "微软雅黑";
+	font-size: 25px;
+	color: #4889f3;
+}
+
+.right {
+	background: #99FF99;
+	height: auto;
+	width: 120px;
+	float: right;
+}
+
+.main {
+	height: auto;
+	margin: 0 120px;
+}
+
+.left {
+	background: #99FF99;
+	height: auto;
+	width: 120px;
+	float: left;
+}
+h1{
+	margin-left: 25%;
+}
+#pre {
+	
+	width: auto;
+	height: 25px;
+}
+
+#newtitle {
+	margin: 5px auto 10px;
+	color: #222;
+	font: bold  "Microsoft Yahei";
+}
+
+span{
+	    line-height: 44px;
+    color: #666;
+    margin-left: 25px;
+}
+.contentleft{
+	width: 75%;
+	float: left;
+}
+.contentleft p {
+	margin-top: 15px;
+	    font: normal 18px/200% "Microsoft Yahei";
+}
+
+.contentright{
+		width: 25%;
+	height: auto;
+	background-color: #000000;
+		float: right;
+}

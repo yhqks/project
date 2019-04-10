@@ -12,5 +12,8 @@
 <select id="getTitle" resultType="java.lang.String">
 select  * from type
 </select>
-
+ <select id="getNewsById"  resultType="com.example.ssm.pojo.news"  parameterType="Integer">
+   select  *  from  news where  id=#{id}
+ 
+ </select>
 </mapper>
