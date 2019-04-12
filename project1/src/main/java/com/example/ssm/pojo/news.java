@@ -12,6 +12,16 @@ public class news {
 	private int scanNum;// 浏览数量
 	private List<pic> src;
 	 private Date time;
+	 
+	 public String[] getContexts() {
+		return contexts;
+	}
+
+	public void setContexts(String[] contexts) {
+		this.contexts = contexts;
+	}
+
+	private String[] contexts;
 
 	public Date getTime() {
 		return time;

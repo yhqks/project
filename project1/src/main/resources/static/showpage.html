@@ -100,6 +100,13 @@
 						}
 
 					});
+					 
+					$.ajax({
+						type : 'POST',
+						url : '/addScan',
+						data:'id='+ms,
+
+					});
 					
 					$.ajax({
 						type : 'POST',
@@ -110,7 +117,7 @@
 						console.log(result);
                              $("h1").text(result.title);
                              $("#time").html(result.time);
-                             $(".contentleft").append("<p>"+result.context+"</p>");
+                             $(".contentleft").append(result.contexts);
 						}
 
 					});

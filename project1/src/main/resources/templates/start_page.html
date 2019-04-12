@@ -75,6 +75,7 @@
 										class="imgset" /> <img src="img/ninja155013517315644.jpg"
 										alt="" class="imgset" /> <img
 										src="img/ninja155013517315644.jpg" alt="" class="imgset" />
+										<i id="scam3" class="layui-icon layui-icon-read">15</i> 
 
 								</div>
 							</li>
@@ -88,6 +89,7 @@
 								<div class="seconddiv">
 									<img src="img/ninja155013517315644.jpg" alt="" class="imgset1" />
 									<a href="" class="imgset1a">新版个人征信报告将上线：上午离婚下午买房将成为过去</a>
+									<i id="scam" class="layui-icon layui-icon-read">15</i>
 								</div>
 							</li>
 
@@ -156,13 +158,15 @@
 								if(this.src.length==0)
 								$("#firstareaul").append("<li class='layui-nav-item'><a href="+"showpage.html?id="+this.id+""+">"+this.title+"</a></li>");
 								if(this.src.length==1)
-								{$("#secondul").append("<li class='layui-nav-item'><div class='seconddiv'><img src=img/"+this.src[0].src+" class='imgset1' /><a href="+"showpage.html?id="+this.id+""+"    class="+"imgset1a"+">"+this.title+"</a></div></li>");}
+								{$("#secondul").append("<li class='layui-nav-item'><div class='seconddiv'><img src=img/"+this.src[0].src+" class='imgset1' /><a href="+"showpage.html?id="+this.id+""+"    class="+"imgset1a"+">"+this.title+"</a><i id='scam' class='layui-icon layui-icon-read'>&nbsp"+this.scanNum+"</i></div></li>");
+								}
 								else if(this.src.length>1){
 									
 									$("#secondul").append("<li class='layui-nav-item'><div class='seconddiv'><a href="+"showpage.html?id="+this.id+""+"><span class='layui-icon'>&#xe756;</span>"+this.title+" </a></div></li>");
 									$.each(this.src, function(){
 										$(".seconddiv:last").append("<img src=img/"+this.src+"   class='imgset' />");
 									});
+									$("#secondul li:last").append("<i id='scam3' class='layui-icon layui-icon-read'>&nbsp"+this.scanNum+"</i>"); 
 								}
 							});
 

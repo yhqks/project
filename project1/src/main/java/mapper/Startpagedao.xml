@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.ssm.dao.Startpagedao">
-
  <select id="getAllNews"  resultType="com.example.ssm.pojo.news">
    select  *  from  news
- 
  </select>
 <select id="getAllpic"  resultType="com.example.ssm.pojo.pic" parameterType="Integer">
   select src from pic where nid =#{id}
@@ -14,6 +12,8 @@ select  * from type
 </select>
  <select id="getNewsById"  resultType="com.example.ssm.pojo.news"  parameterType="Integer">
    select  *  from  news where  id=#{id}
- 
  </select>
+ <update id="addScan" parameterType="Integer">  
+    UPDATE `news` SET scan_num=scan_num+1 where id=#{id}
+ </update>
 </mapper>

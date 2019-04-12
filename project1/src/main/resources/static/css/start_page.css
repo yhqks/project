@@ -105,3 +105,19 @@ height: 150px;
 #btn{
 	color:white;
 }
+
+#scam{
+    color: black;
+    position: inherit;
+    margin-left: 625px;
+    top: 37px;
+	
+}
+
+#scam3{
+	color: black;
+    position: inherit;
+    margin-left: 625px;
+    top: -36px;
+}
+

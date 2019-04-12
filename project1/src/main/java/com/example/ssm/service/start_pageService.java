@@ -35,6 +35,10 @@ public class start_pageService {
 	   news news=map.getNewsById(id);
 	   return news;
    }
+   
+   public void addScan(int id) {
+	   map.addScan(id);
+   }
 
 
 }

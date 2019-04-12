@@ -14,4 +14,5 @@ public interface Startpagedao {
   List<pic> getAllpic(int id);
   List<String>  getTitle();
   news getNewsById(int id);
+  void  addScan(int id);
 }
