@@ -120,4 +120,6 @@ height: 150px;
     margin-left: 625px;
     top: -36px;
 }
-
+#exit:hover{
+	color: #4889f3;
+}

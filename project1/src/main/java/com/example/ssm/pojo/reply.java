@@ -7,7 +7,7 @@ public class reply {
  private String context;
  private Integer uid;
  private Integer nid;
- private Date time;
+ private String time;
 public Integer getId() {
 	return id;
 }
@@ -32,20 +32,20 @@ public Integer getNid() {
 public void setNid(Integer nid) {
 	this.nid = nid;
 }
-public Date getTime() {
+public String getTime() {
 	return time;
 }
-public void setTime(Date time) {
+public void setTime(String time) {
 	this.time = time;
 }
-public reply(Integer id, String context, Integer uid, Integer nid, Date time) {
+public reply(Integer id, String context, Integer uid, Integer nid, String time) {
 	this.id = id;
 	this.context = context;
 	this.uid = uid;
 	this.nid = nid;
 	this.time = time;
 }
-public reply(String context, Integer uid, Integer nid, Date time) {
+public reply(String context, Integer uid, Integer nid, String time) {
 	this.context = context;
 	this.uid = uid;
 	this.nid = nid;

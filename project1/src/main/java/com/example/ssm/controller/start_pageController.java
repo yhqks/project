@@ -30,18 +30,14 @@ public class start_pageController {
 	public List<news> getAllnews() {
 		List<news> list = Service.getAllNews();
 		for (news news : list) {
-			System.out.println(news);
 			List<pic> p = Service.getAllpic(news.getId());
 			news.setSrc(p);
 		}
 
-		for (news news : list) {
-			System.out.println(news.getSrc());
-		}
 
 		return list;
 	}
-	@RequestMapping(value = "exit", method = RequestMethod.POST)
+	@RequestMapping(value = "exit")
 	public String exit() {
 		
 		return "index";

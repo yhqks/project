@@ -42,7 +42,6 @@ public class loginController extends HttpServlet {
 	public String getDepts(HttpServletRequest request, HttpServletResponse response) {
 		//通过传入的用户名查询用户信息 （用户名不可重复）
 		user user = userService.getuser(request.getParameter("username"));
-		System.out.println(user);
 		//
 		if (user == null) {
 			//若果user为空说明不存在该用户
@@ -91,7 +90,6 @@ public class loginController extends HttpServlet {
 	@ResponseBody 
 	public Boolean  checkname(@RequestParam(value = "name")String name) {
 		user user = userService.getuser(name);
-		System.out.println(user);
 		if(user!=null) return false;
 		return true;
 	}

@@ -16,12 +16,11 @@
 			<div class="layui-logo  " id="title">校园新闻网</div>
 			<!-- 头部区域（可配合layui已有的水平导航） -->
 			<ul class="layui-nav layui-layout-left" id="headerul">
-				<li class="layui-nav-item"><a href="">控制台</a></li>
 
 			</ul>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item"><a href="javascript:;"
-					id="usernameshow"> <img src="" class="layui-nav-img">
+					id="usernameshow"> <img src="img/bg.jpg" class="layui-nav-img">
 				</a>
 					<dl class="layui-nav-child">
 						<dd>
@@ -32,7 +31,7 @@
 						</dd>
 					</dl></li>
 				<li class="layui-nav-item"  >
-				<button onclick="exit()"  id="btn" class="layui-btn" values="推出" >推出</button>
+				<a href="/exit" id="exit"> 退出登陆</a>
 				</li>
 			</ul>
 		</div>
@@ -118,19 +117,12 @@
 
 		});
 		
-		function  exit(){
-			$.ajax({
-				type : 'POST',
-				url : '/exit',
-			});
-			
-		}
 
 		$(document).ready(
 				function() {
 					var code = $.cookie('username');
 					if (code == null)
-						window.location.href = "index.html";
+					//	window.location.href = "index.html";
 					$("#usernameshow").text(code);
 					$.ajax({
 						type : 'POST',
@@ -156,13 +148,13 @@
 						success : function(result) {
 							$.each(result, function() {
 								if(this.src.length==0)
-								$("#firstareaul").append("<li class='layui-nav-item'><a href="+"showpage.html?id="+this.id+""+">"+this.title+"</a></li>");
+								$("#firstareaul").append("<li class='layui-nav-item'><a href="+"showpage.html?id="+this.id+""+"  target='_blank'>"+this.title+"</a></li>");
 								if(this.src.length==1)
-								{$("#secondul").append("<li class='layui-nav-item'><div class='seconddiv'><img src=img/"+this.src[0].src+" class='imgset1' /><a href="+"showpage.html?id="+this.id+""+"    class="+"imgset1a"+">"+this.title+"</a><i id='scam' class='layui-icon layui-icon-read'>&nbsp"+this.scanNum+"</i></div></li>");
+								{$("#secondul").append("<li class='layui-nav-item'><div class='seconddiv'><img src=img/"+this.src[0].src+" class='imgset1' /><a href="+"showpage.html?id="+this.id+"  "+" target='_blank'  class="+"imgset1a"+" +>"+this.title+"</a><i id='scam' class='layui-icon layui-icon-read'>&nbsp"+this.scanNum+"</i></div></li>");
 								}
 								else if(this.src.length>1){
 									
-									$("#secondul").append("<li class='layui-nav-item'><div class='seconddiv'><a href="+"showpage.html?id="+this.id+""+"><span class='layui-icon'>&#xe756;</span>"+this.title+" </a></div></li>");
+									$("#secondul").append("<li class='layui-nav-item'><div class='seconddiv'><a href="+"showpage.html?id="+this.id+" target='_blank'><span class='layui-icon'>&#xe756;</span>"+this.title+" </a></div></li>");
 									$.each(this.src, function(){
 										$(".seconddiv:last").append("<img src=img/"+this.src+"   class='imgset' />");
 									});

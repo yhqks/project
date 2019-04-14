@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.ssm.dao.Showpagedao">
+<select id="getIdByusername"  parameterType="java.lang.String" resultType="Integer">
+select id from user where username=#{name}
+
+</select>
+
+<insert id="insertReply"  parameterType="com.example.ssm.pojo.reply">
+
+  INSERT INTO `reply_record`( `context`, `uid`, `nid`, `time`) VALUES (#{context},#{uid},#{nid},#{time})
+</insert>
+<select id="getReplyNumById" parameterType="Integer" resultType="Integer">
+SELECT COUNT( * ) 
+FROM  `reply_record` 
+WHERE nid =#{id}
+</select>
+</mapper>
