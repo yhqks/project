@@ -24,14 +24,14 @@
 				</div>
 				<p id="waringname">用户名只能包含数字和字母</p>
 			</div>
-			<!--  <div class="layui-form-item">
-				<label class="layui-form-label">名字</label>
+			  <div class="layui-form-item">
+				<label class="layui-form-label">昵称</label>
 				<div class="layui-input-block">
-					<input type="text" id="name" name="name" required
-						lay-verify="required" placeholder="名字" autocomplete="off"
+					<input type="text" id="picname" name="picname" required
+						lay-verify="required" placeholder="昵称" autocomplete="off"
 						class="layui-input inputs">
 				</div>
-			</div>-->
+			</div>
 			<div class="layui-form-item">
 				<label class="layui-form-label">密码框</label>
 				<div class="layui-input-inline">
@@ -156,8 +156,9 @@
 			var  pwd=$("#pwd").val();
 			var college=$("#college").val();
 			var  sex=$("input[name='sex']:checked").val();
+			var picname=$("#picname").val();
 			
-			if(pwdfalg==true&&nameflag==true&&college!=null){
+			if(pwdfalg==true&&nameflag==true&&college!=null&&picname!=null){
 				$("form").submit();
 				
 			}

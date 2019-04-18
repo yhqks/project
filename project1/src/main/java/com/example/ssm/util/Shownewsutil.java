@@ -16,9 +16,8 @@ public class Shownewsutil {
 		}
 		
 	}
-	  
 	  news.setContexts(list);
-	  
+
 	  return news;
 	 
 	}

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.ssm.pojo.news;
 import com.example.ssm.pojo.pic;
+import com.example.ssm.service.loginService;
 import com.example.ssm.service.start_pageService;
 import com.example.ssm.util.Shownewsutil;
 
@@ -17,6 +18,9 @@ import com.example.ssm.util.Shownewsutil;
 public class start_pageController {
 	@Autowired
 	private start_pageService Service;
+	  @Autowired
+      loginService userservice;
+	  
 	@RequestMapping(value = "getTitle", method = RequestMethod.POST)
 	@ResponseBody
 	public List<String> getTitle() {
@@ -46,7 +50,12 @@ public class start_pageController {
 	@RequestMapping(value = "getNewsById", method = RequestMethod.POST)
 	@ResponseBody
 	public news getNewsById(Integer id) {
-		return	Shownewsutil.Shownewsutils(Service.getNewsById(id));
+		
+		 userservice.getPicnameById(id);
+		 news n=Service.getNewsById(id);
+		 n.setAuthorname(userservice.getPicnameById(n.getAuthorId()));
+		 System.out.println(n.getAuthorname());
+		return	Shownewsutil.Shownewsutils(n);
 	}
 	@RequestMapping(value = "addScan", method = RequestMethod.POST)
 	@ResponseBody

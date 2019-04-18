@@ -1,5 +1,6 @@
 package com.example.ssm.pojo;
 
+
 public class user {
 	private int id;//用户id
 	private String username;//用户名
@@ -8,6 +9,7 @@ public class user {
 	private String college;//学院
 	private String interest;//兴趣
 	private int  Permissions;//用户等级
+	private String picname;
 	public int getId() {
 		return id;
 	}
@@ -52,6 +54,36 @@ public class user {
 		this.Permissions = premission;
 	}
 	
+	public String getPicname() {
+		return picname;
+	}
+	public void setPicname(String picname) {
+		this.picname = picname;
+	}
+	
+	public user(String username, String pwd, String sex, String college, String interest, int permissions,
+			String picname) {
+		super();
+		this.username = username;
+		this.pwd = pwd;
+		this.sex = sex;
+		this.college = college;
+		this.interest = interest;
+		Permissions = permissions;
+		this.picname = picname;
+	}
+	public user(int id, String username, String pwd, String sex, String college, String interest, int permissions,
+			String picname) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.pwd = pwd;
+		this.sex = sex;
+		this.college = college;
+		this.interest = interest;
+		Permissions = permissions;
+		this.picname = picname;
+	}
 	public user(int id, String username, String pwd, String sex, String college, String interest, int premission) {
 
 		this.id = id;
@@ -70,11 +102,11 @@ public class user {
 		this.interest = interest;
 		this.Permissions = premission;
 	}
-	public user() {}
 	@Override
 	public String toString() {
 		return "user [id=" + id + ", username=" + username + ", pwd=" + pwd + ", sex=" + sex + ", college=" + college
-				+ ", interest=" + interest + ", Premission=" + Permissions + "]";
+				+ ", interest=" + interest + ", Permissions=" + Permissions + ", picname=" + picname + "]";
 	}
+	public user() {}
 	
 }

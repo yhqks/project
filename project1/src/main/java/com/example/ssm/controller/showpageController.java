@@ -1,7 +1,9 @@
 package com.example.ssm.controller;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,12 +12,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.ssm.pojo.reply;
+import com.example.ssm.service.loginService;
 import com.example.ssm.service.showpageService;
+import com.example.ssm.util.Dateutil;
 
 @Controller
 public class showpageController {
      @Autowired
        showpageService service;
+     
+     @Autowired
+     loginService userservice;
+     
+   
+      
      
 	@RequestMapping(value = "sub")
 	@ResponseBody
@@ -23,7 +33,7 @@ public class showpageController {
 		
 		Integer uid=service.getIdByusername(name);
 		reply.setUid(uid);
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date now = new Date(); 
 		reply.setTime(df.format(now));
 		Boolean b=service.insertReply(reply);
@@ -38,5 +48,24 @@ public class showpageController {
 		  return num;
 		
 	}
-
+	@RequestMapping(value = "getReplycontext")
+	@ResponseBody
+	public  List<reply> getReplycontext(int id) {
+		  List<reply> list=service.getReply(id);
+			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		   for (reply reply : list) {
+			   Date d;
+			try {
+				reply.setName(userservice.getPicnameById(reply.getUid())); 
+				d = df.parse(reply.getTime());
+				reply.setTime(Dateutil.CountDate(d));
+				reply.setDiscuss(service.getDiscuss(reply.getId()));
+				System.out.println(reply+""+reply.getDiscuss());
+			} catch (ParseException e) {
+			}
+			   
+		}
+		   
+		return list;
+	}
 }

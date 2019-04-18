@@ -12,8 +12,17 @@ public class news {
 	private int scanNum;// 浏览数量
 	private List<pic> src;
 	 private Date time;
+	 private String authorname;
 	 
-	 public String[] getContexts() {
+	 public String getAuthorname() {
+		return authorname;
+	}
+
+	public void setAuthorname(String authorname) {
+		this.authorname = authorname;
+	}
+
+	public String[] getContexts() {
 		return contexts;
 	}
 

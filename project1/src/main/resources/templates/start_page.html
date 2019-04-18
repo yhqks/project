@@ -20,7 +20,7 @@
 			</ul>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item"><a href="javascript:;"
-					id="usernameshow"> <img src="img/bg.jpg" class="layui-nav-img">
+					id="usernameshow">ff <img src="img/bg.jpg" class="layui-nav-img">
 				</a>
 					<dl class="layui-nav-child">
 						<dd>
@@ -121,9 +121,12 @@
 		$(document).ready(
 				function() {
 					var code = $.cookie('username');
-					if (code == null)
+					//if (code == null)
 					//	window.location.href = "index.html";
-					$("#usernameshow").text(code);
+					var  picname=$.cookie('picname');
+					console.log(picname);
+					console.log(code);
+					$("#usernameshow").text(picname);
 					$.ajax({
 						type : 'POST',
 						dataType : 'json',

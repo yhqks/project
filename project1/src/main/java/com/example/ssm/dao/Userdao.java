@@ -13,5 +13,6 @@ public interface Userdao {
 	user selectByName(String name);
 	List<String> getAllCollege();
 	Boolean insertuser(user user);
+	String getPicnameById(int id);
 	
 }

@@ -1,6 +1,6 @@
 package com.example.ssm.pojo;
 
-import java.sql.Date;
+import java.util.List;
 
 public class reply {
  private Integer id;
@@ -8,6 +8,20 @@ public class reply {
  private Integer uid;
  private Integer nid;
  private String time;
+ private String name;
+ private List<discuss> discuss;
+public List<discuss> getDiscuss() {
+	return discuss;
+}
+public void setDiscuss(List<discuss> discuss) {
+	this.discuss = discuss;
+}
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
 public Integer getId() {
 	return id;
 }
@@ -56,7 +70,8 @@ public reply() {
 }
 @Override
 public String toString() {
-	return "reply [context=" + context + ", uid=" + uid + ", nid=" + nid + ", time=" + time + "]";
+	return "reply [id=" + id + ", context=" + context + ", uid=" + uid + ", nid=" + nid + ", time=" + time + ", name="
+			+ name + "]";
 }
  
  

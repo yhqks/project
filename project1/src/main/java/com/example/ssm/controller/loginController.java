@@ -57,7 +57,11 @@ public class loginController extends HttpServlet {
 			return "login";
 			if(user.getPermissions()==1) {
 				Cookie c2 = new Cookie("username", user.getUsername());
+				Cookie c= new Cookie("picname",user.getPicname());
 				response.addCookie(c2);
+				response.addCookie(c);
+				System.out.println(c.getValue());
+				System.out.println(user);
 				return  "start_page";
 			}
 
@@ -103,6 +107,7 @@ public class loginController extends HttpServlet {
 		user.setPwd(request.getParameter("pwd"));
 		user.setSex(request.getParameter("sex"));
 		user.setCollege(request.getParameter("college"));
+		user.setPicname(request.getParameter("picname"));
 		user.setPermissions(1);
 		userService.insertuser(user);
 		return "index";

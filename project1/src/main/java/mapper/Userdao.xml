@@ -9,6 +9,10 @@
  select * from college
  </select>
  <insert id="insertuser" parameterType="com.example.ssm.pojo.user">
- INSERT INTO `user`( `username`, `pwd`, `sex`, `college`, `Permissions`) VALUES (#{username},#{pwd},#{sex},#{college},#{Permissions})
+ INSERT INTO `user`( `username`, `pwd`, `sex`, `college`, `Permissions`,`picname`) VALUES (#{username},#{pwd},#{sex},#{college},#{Permissions},#{picname})
  </insert>
+ 
+ <select id="getPicnameById" parameterType="Integer" resultType="java.lang.String">
+   select picname  from user where id=#{id}
+ </select>
 </mapper>

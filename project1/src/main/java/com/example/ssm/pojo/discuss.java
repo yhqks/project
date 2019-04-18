@@ -6,8 +6,8 @@ public class discuss {
 	private Integer id; //讨论记录的id
 	private String context;//内容
 	private Integer uid;//用户的id
-	private Integer nid;//新闻的id
-	private Date time;//发表的时间
+	private Integer rid;//回复的id
+	private String time;//发表的时间
 
 	public Integer getId() {
 		return id;
@@ -33,34 +33,34 @@ public class discuss {
 		this.uid = uid;
 	}
 
-	public Integer getNid() {
-		return nid;
+	public Integer getRid() {
+		return rid;
 	}
 
-	public void setNid(Integer nid) {
-		this.nid = nid;
+	public void setRid(Integer rid) {
+		this.rid = rid;
 	}
 
-	public Date getTime() {
+	public String getTime() {
 		return time;
 	}
 
-	public void setTime(Date time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
 
-	public discuss(Integer id, String context, Integer uid, Integer nid, Date time) {
+	public discuss(Integer id, String context, Integer uid, Integer rid, String time) {
 		this.id = id;
 		this.context = context;
 		this.uid = uid;
-		this.nid = nid;
+		this.rid = rid;
 		this.time = time;
 	}
 
-	public discuss(String context, Integer uid, Integer nid, Date time) {
+	public discuss(String context, Integer uid, Integer rid, String time) {
 		this.context = context;
 		this.uid = uid;
-		this.nid = nid;
+		this.rid = rid;
 		this.time = time;
 	}
 
@@ -70,7 +70,7 @@ public class discuss {
 
 	@Override
 	public String toString() {
-		return "discuss [context=" + context + ", uid=" + uid + ", nid=" + nid + ", time=" + time + "]";
+		return "discuss [context=" + context + ", uid=" + uid + ", rid=" + rid + ", time=" + time + "]";
 	}
 
 }

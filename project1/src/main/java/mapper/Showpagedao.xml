@@ -15,4 +15,12 @@ SELECT COUNT( * )
 FROM  `reply_record` 
 WHERE nid =#{id}
 </select>
+<select id="getReply" parameterType="Integer" resultType="com.example.ssm.pojo.reply">
+SELECT *
+FROM  `reply_record` 
+WHERE nid =#{id} 
+</select>
+<select id="getDiscuss" parameterType="Integer" resultType="com.example.ssm.pojo.discuss">
+  select * from discuss where rid =#{id}
+</select>
 </mapper>

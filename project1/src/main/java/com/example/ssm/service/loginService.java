@@ -9,7 +9,7 @@ import com.example.ssm.dao.Userdao;
 import com.example.ssm.pojo.user;
 
 @Service
-public class loginService {
+public class loginService  {
 	@Autowired
 	 private	Userdao map;
 
@@ -31,4 +31,12 @@ public class loginService {
 			return map.insertuser(user);
 			
 		} 
+		
+		public String getPicnameById(int id) {
+			return map.getPicnameById(id);
+			
+		}
+		
+
+		
 }

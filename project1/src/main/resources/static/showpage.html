@@ -50,7 +50,8 @@
 				<div class="lf">
 					<span id="time"> 2019年4月5号 </span> <span id="author"> 作者 </span>
 				</div>
-				<fieldset class="layui-elem-field layui-field-title site-title  linetitle">
+				<fieldset
+					class="layui-elem-field layui-field-title site-title  linetitle">
 
 					<legend> </legend>
 				</fieldset>
@@ -86,6 +87,54 @@
 									</div>
 									<span class="box-loginBtn J_PostBtn" onclick="sub()">登录</span>
 								</div>
+								<div class="commit-short">
+									<div class="comment-title">
+										<p class="comment-all">全部讨论</p>
+										<div class="comment-center">
+											<span class="comment-center-slash">/</span><span
+												class="comment-my J_userCenter">我的评论</span>
+										</div>
+										<p class="comment-sort">
+											<span data-targetid="3845866524" data-sort="1"
+												class="J_CommentSort ">最新</span> &nbsp;/&nbsp; <span
+												data-targetid="3845866524" data-sort="0"
+												class="J_CommentSort comment-sort-cur">最热</span>
+										</p>
+									</div>
+
+									<div class="J_shortComment">
+										<div class="comment" id="J_Comment6524529967707255699">
+											<div class="comment-block"
+												id="J_CommentBlock6524529967707255699">
+												<p class="comment-user">
+													<span class="comment-username J_User"
+														data-userid="19475987"> 4fgdsg </span> <span
+														class="comment-time">23分钟前</span>
+												</p>
+												<div class="comment-content J_CommentContent">苹果又沙雕了，昨天还一副拒交高通专利费的嘴脸，今天立即跪下高通5g真香</div>
+												<div class="reply J_ReplyBlock">
+													<div class="reply-block">
+														<div class="reply-content">
+															<span class="reply-user"> <b
+																class="reply-user-nick J_User" data-userid="365443586">也罢1</b>
+																:
+															</span> 支持你
+														</div>
+
+														<span class="J_Reply reply-operate-item"
+															id="J_Reply6524534428208427640" data-nick="也罢1"
+															data-userid="365443586">回复于5分钟前</span>
+
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+									</div>
+
+								</div>
 							</div>
 						</div>
 					</div>
@@ -97,8 +146,8 @@
 		</div>
 
 	</div>
-  <p  id="username"></p>
-    <p  id="newsid"></p>
+	<p id="username"></p>
+	<p id="newsid"></p>
 	<script src="layui/layui.js"></script>
 	<script src="jquery-2.1.1/jquery.js" type="text/javascript"
 		charset="utf-8"></script>
@@ -112,9 +161,10 @@
 				    var ms = window.location.search.match(reg);
 
 					var code = $.cookie('username');
-					 $("#username").html(code);
+					var  picname=$.cookie('picname');
+					 $("#username").html(picname);
 					if (code != null) {
-						$("#usernameshow").text(code);
+						$("#usernameshow").text(picname);
 						$("#usernameshow").attr('href','javascprit:;');
 					}
                     
@@ -162,12 +212,40 @@
                              $("#time").html(result.time);
                              $(".newcontext").append(result.contexts);
                              $("#newsid").html(result.id);
+					         $("#author").html(result.authorname);
+
+					}});
+					
+					$.ajax({
+						type : 'POST',
+						dataType : 'json',
+						data:'id='+ms,
+						url : '/getReplycontext',
+						success : function(result) {
+							$.each(result, function() {
+								console.log(this);
+								$(".comment").append("<div class='comment-block' > <p class='comment-user'> <span class='comment-username J_User'> "+ this.name + " </span> <span class='comment-time'>"+this.time+"前</span> </p><div class='comment-content J_CommentContent'>"+this.context+"</div>"+
+										"<div class='reply J_ReplyBlock'>"+
+											"<div class='reply-block'>"+
+												"<div class='reply-content'> <span class='reply-user'>"+
+													"<b class='reply-user-nick J_User' data-userid='365443586'>"++"</b> "+
+													" : "+
+												"</span> 支持你 </div>"+
+
+												"<span class='J_Reply reply-operate-item'  data-nick='也罢1' data-userid='365443586'>回复于5分钟前</span> "+
+												
+											"</div>"+
+											
+										"</div>"+
+
+									"</div>");
+								
+							}
                         
-						}
+						)}
+						
 
 					});
-					
-					
 			
 				
 					
@@ -183,13 +261,13 @@
 			  $.ajax({
 					type : 'POST',
 					dataType : 'json',
-					data:{context:text,nid:newsid,uid:0,username:username},
+					data:{context:text,nid:newsid,uid:0,username:$.cookie('username')},
 					url : '/sub',
 					success : function(result) {
 						 if(result==true)
 							 {
-							   alert("评论成功");
 							   $("#J_Textarea").val("");
+							   window.location.reload();
 							 }
 						
 					}
